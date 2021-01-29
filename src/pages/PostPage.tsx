@@ -19,15 +19,15 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  loadRequest(): void
+    loadPost(): void
 }
 type Props = StateProps & DispatchProps
 
-const UserPage: React.FunctionComponent<Props> = props => {
+const PostPage: React.FunctionComponent<Props> = props => {
   // Component didmount => fetch API 
   useEffect(() => {
-    const {loadRequest} = props;
-    loadRequest();
+    const {loadPost} = props;
+    loadPost();
   }, [])
   const { repositories } = props;
 
@@ -38,33 +38,47 @@ const UserPage: React.FunctionComponent<Props> = props => {
       key: 'id',
     },
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      title: 'Nội dung',
+      dataIndex: 'content',
+      key: 'content',
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
+      title: 'Hình ảnh',
+      dataIndex: 'images',
+      key: 'images',
+      render: (images: string[]): JSX.Element[] => {
+        return images&&images.map((c: string) => {
+          return (
+            <img src={c} key={c} style={{width: 70, height: 70}}>
+            </img>
+          )
+        })
+      },
     },
     {
-      title: 'Phone',
-      dataIndex: 'phone',
-      key: 'phone',
+      title: 'Video',
+      dataIndex: 'videos',
+      key: 'videos',
+      render: (videos: string[]): JSX.Element[] => {
+        return videos&&videos.map((c: string) => {
+          return (
+            <video key={c} autoPlay={true} style={{width: 140, height: 140}}>
+                <source src={c} />
+        </video>
+          )
+        })
+      },
     },
     {
       title: 'Ngày đăng kí tài khoản',
       dataIndex: 'createdAt',
       key: 'createdAt',
     },
-    {
-      title: 'Số người theo dỗi',
-      dataIndex: 'follows',
-      key: 'follows',
-      render: (follows: string[])=>{return follows?follows.length:0}
-    }
+   
   ]
 
+  console.log(repositories);
+  
 
 
    /**
@@ -77,8 +91,8 @@ const UserPage: React.FunctionComponent<Props> = props => {
       <DashboardPageLayout>
         <Content>
         <div className="site-layout-background" style={{}}>
-        <PageContent title="Danh sách người dùng" titleDivider>
-          {loading && (
+        <PageContent title="Danh sách bài viết" titleDivider>
+        {loading && (
             <div style={{ textAlign: 'center' }}>
               <LoadingOutlined />{' '}
             </div>
@@ -97,4 +111,4 @@ const UserPage: React.FunctionComponent<Props> = props => {
   
   const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(RepositoriesActions, dispatch);
   
-  export default connect(mapStateToProps, mapDispatchToProps)(UserPage);
+  export default connect(mapStateToProps, mapDispatchToProps)(PostPage);

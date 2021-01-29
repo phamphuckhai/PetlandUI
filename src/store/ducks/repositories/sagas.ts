@@ -12,7 +12,17 @@ export function* load() {
     // console.log("hello");
     
     // console.log(typeof(response));
+    yield put(loadSuccess(response));
+  } catch (err) {
+    yield put(loadFailure());
+  }
+}
 
+export function* loadPost() {
+  try {    
+    const response =  yield call(getTestGQL);
+    console.log(response);
+    
     yield put(loadSuccess(response));
   } catch (err) {
     yield put(loadFailure());

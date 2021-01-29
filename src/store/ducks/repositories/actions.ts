@@ -7,5 +7,5 @@ export const loadSuccess = (data: Repository[]) => action(RepositoriesTypes.LOAD
 
 export const loadFailure = () => action(RepositoriesTypes.LOAD_FAILURE);
 
-export const loadUser = ()=> action(RepositoriesTypes.LOAD_USER)
+export const loadPost = ()=> action(RepositoriesTypes.LOAD_POST)
 

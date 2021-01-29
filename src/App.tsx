@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 
 
 import DashBoardPageLayout from './layouts/DashBoardPageLayout';
+import PostPage from './pages/PostPage';
 import UserPage from './pages/UserPage';
 
 import store from './store';
@@ -31,8 +32,8 @@ const App: React.FunctionComponent<Props> = () => {
       <Provider store={store}>
         
           <Switch>
-            {/* <Route path="/login" component={Login} />
-            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/post" component={PostPage} />
+            {/* <Route path="/dashboard" component={Dashboard} />
             <Route path="/add-friend" component={AddFriend} />
             <Route path="/add-new-item" component={AddNewItem} />
             <Route path="/send-invitation" component={SendInvitation} />

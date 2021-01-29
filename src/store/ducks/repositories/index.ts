@@ -19,10 +19,8 @@ const reducer: Reducer<RepositoriesState> = (state = INITIAL_STATE, action) => {
       return {
       ...state, loading: false, error: true, data: [],
       };
-    // case RepositoriesTypes.LOAD_USER:
-    //     return{
-    //   ...state, loading: false, screen: RepositoryItem
-    //     };
+    case RepositoriesTypes.LOAD_POST:
+          return { ...state, loading: true };
     default:
       return state;
   }

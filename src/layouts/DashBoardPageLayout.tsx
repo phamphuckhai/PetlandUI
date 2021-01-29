@@ -1,10 +1,11 @@
 import React from 'react';
 
 
+
 import { Link } from 'react-router-dom'
 
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { UserOutlined, MessageOutlined , NotificationOutlined } from '@ant-design/icons';
 import styled from 'styled-components'
 
 
@@ -20,10 +21,10 @@ const  DashboardPageLayout: React.FunctionComponent<CommonLayoutProps> = ({ chil
     
   
   return (
-        <DashboardLayout>
-      <Layout style={{fontSize: 16}}>
+        <DashboardLayout >
+      <Layout style={{fontSize: 16 }}>
     <Header className="header">
-      <div className="logo" />
+      <img className="logo" src='petland.png' style={{height:60, padding: '0 50px'}}/>
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
     
       </Menu>
@@ -46,12 +47,9 @@ const  DashboardPageLayout: React.FunctionComponent<CommonLayoutProps> = ({ chil
             >
               <Link to="/user">User</Link>
             </Menu.Item>
-            <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
-              <Menu.Item key="5">option5</Menu.Item>
-              <Menu.Item key="6">option6</Menu.Item>
-              <Menu.Item key="7">option7</Menu.Item>
-              <Menu.Item key="8">option8</Menu.Item>
-            </SubMenu>
+            <Menu.Item key="5" icon={<MessageOutlined/>}>
+              <Link to="/post">Bài viết</Link>
+                </Menu.Item>
             <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
               <Menu.Item key="9">option9</Menu.Item>
               <Menu.Item key="10">option10</Menu.Item>
@@ -72,7 +70,7 @@ const  DashboardPageLayout: React.FunctionComponent<CommonLayoutProps> = ({ chil
 }
 
 const DashboardLayout = styled(Layout)`
-  min-height: 1000vh;
+  min-height: 100vh;
 `
 
 export default DashboardPageLayout
