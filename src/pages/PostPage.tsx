@@ -70,10 +70,20 @@ const PostPage: React.FunctionComponent<Props> = props => {
       },
     },
     {
-      title: 'Ngày đăng kí tài khoản',
+      title: 'Ngày đăng bài',
       dataIndex: 'createdAt',
       key: 'createdAt',
     },
+    {
+        title: 'Lượt thích',
+        dataIndex: 'like',
+        key: 'like',
+      },
+      {
+        title: 'Lượt chia sẽ',
+        dataIndex: 'share',
+        key: 'share',
+      },
    
   ]
 
