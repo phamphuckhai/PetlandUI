@@ -33,3 +33,26 @@ gql`
   });
 }
 
+export const getUserGQL = async ()=>{
+  return await graphQLClient.request(
+gql`
+query {
+  getAllUser(q: {
+    filter: {
+      role: "EDITOR"
+    }
+  }) {
+    data {
+			id
+			name
+      email
+      phone
+      createdAt
+      follows
+    }
+  }
+}`).then((data)=>{
+    return data.getAllUser.data
+  });
+}
+
