@@ -1,12 +1,15 @@
 import { all, takeEvery } from 'redux-saga/effects';
 
 import { RepositoriesTypes } from './repositories/types';
-import { load, loadPost } from './repositories/sagas';
+import { load, loadPost, loadPet,loadVaccine, takeDelete } from './repositories/sagas';
 
 export default function* rootSaga() {
   return yield all([
     takeEvery(RepositoriesTypes.LOAD_REQUEST, load),
     takeEvery(RepositoriesTypes.LOAD_POST, loadPost),
+    takeEvery(RepositoriesTypes.LOAD_PET, loadPet),
+    takeEvery(RepositoriesTypes.LOAD_VACCINE, loadVaccine),
+    takeEvery(RepositoriesTypes.DELETE_VACCINE, takeDelete),
   ]);
 }
 

@@ -19,75 +19,55 @@ interface StateProps {
 }
 
 interface DispatchProps {
-    loadPost(): void
+    loadPet(): void
 }
 type Props = StateProps & DispatchProps
 
-const PostPage: React.FunctionComponent<Props> = props => {
+const PetPage: React.FunctionComponent<Props> = props => {
   // Component didmount => fetch API 
   useEffect(() => {
-    const {loadPost} = props;
-    loadPost();
-  }, [])
+    const {loadPet} = props;
+    loadPet();
+  }, []);
   const { repositories } = props;
 
   const columns = [
     {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
+      title: 'Tên',
+      dataIndex: 'name',
+      key: 'name',
     },
     {
-      title: 'Nội dung',
-      dataIndex: 'content',
-      key: 'content',
+      title: 'Sinh nhật',
+      dataIndex: 'birthday',
+      key: 'birthday',
     },
     {
-      title: 'Hình ảnh',
-      dataIndex: 'images',
-      key: 'images',
-      render: (images: string[]): JSX.Element[] => {
-        return images&&images.map((c: string) => {
-          return (
-            <img src={c} key={c} style={{width: 70, height: 70}}>
-            </img>
-          )
-        })
-      },
+      title: 'Giống',
+      dataIndex: 'race',
+      key: 'race',
+      render: (race: any)=>{return race?race.name:''}
+
+     
     },
     {
-      title: 'Video',
-      dataIndex: 'videos',
-      key: 'videos',
-      render: (videos: string[]): JSX.Element[] => {
-        return videos&&videos.map((c: string) => {
-          return (
-            <video key={c} autoPlay={true} style={{width: 140, height: 140}}>
-                <source src={c} />
-        </video>
-          )
-        })
-      },
-    },
-    {
-      title: 'Ngày đăng bài',
-      dataIndex: 'createdAt',
-      key: 'createdAt',
-    },
-    {
-        title: 'Lượt thích',
-        dataIndex: 'like',
-        key: 'like',
+        title: '"Sen"',
+        dataIndex: 'user.name',
+        key: 'user.nam',
       },
       {
-        title: 'Lượt chia sẻ',
-        dataIndex: 'share',
-        key: 'share',
+        title: 'Avatar',
+        dataIndex: 'avatar',
+        key: 'avatar',
+        render: (image: string) => {
+            return (
+              <img src={image} key={image} style={{width: 70, height: 70}}>
+              </img>
+            )
+        },
       },
    
-  ]
-  
-
+  ]  
 
    /**
    * Update this code to show loading spinner when data is being fetched from
@@ -99,7 +79,7 @@ const PostPage: React.FunctionComponent<Props> = props => {
       <DashboardPageLayout>
         <Content>
         <div className="site-layout-background" style={{}}>
-        <PageContent title="Danh sách bài viết" titleDivider>
+        <PageContent title="Danh sách thú cưng" titleDivider>
         {loading && (
             <div style={{ textAlign: 'center' }}>
               <LoadingOutlined />{' '}
@@ -119,4 +99,4 @@ const PostPage: React.FunctionComponent<Props> = props => {
   
   const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(RepositoriesActions, dispatch);
   
-  export default connect(mapStateToProps, mapDispatchToProps)(PostPage);
+  export default connect(mapStateToProps, mapDispatchToProps)(PetPage);

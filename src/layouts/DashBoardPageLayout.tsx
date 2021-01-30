@@ -5,7 +5,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, MessageOutlined , NotificationOutlined } from '@ant-design/icons';
+import { UserOutlined, MessageOutlined , NotificationOutlined, CrownFilled } from '@ant-design/icons';
 import styled from 'styled-components'
 
 
@@ -45,16 +45,15 @@ const  DashboardPageLayout: React.FunctionComponent<CommonLayoutProps> = ({ chil
           >
             <Menu.Item key="sub1" icon={<UserOutlined />} title="subnav 1"
             >
-              <Link to="/user">User</Link>
+              <Link to="/user">Người dùng</Link>
             </Menu.Item>
             <Menu.Item key="5" icon={<MessageOutlined/>}>
               <Link to="/post">Bài viết</Link>
                 </Menu.Item>
-            <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
-              <Menu.Item key="9">option9</Menu.Item>
-              <Menu.Item key="10">option10</Menu.Item>
-              <Menu.Item key="11">option11</Menu.Item>
-              <Menu.Item key="12">option12</Menu.Item>
+            <SubMenu key="PET" icon={<CrownFilled />} title="Thú cưng">
+              <Menu.Item key="9"> <Link to="/pet">List thú cưng</Link></Menu.Item>
+              <Menu.Item key="10"><Link to="/vaccine">Vắc-xin</Link></Menu.Item>
+             
             </SubMenu>
           </Menu>
         </Sider>

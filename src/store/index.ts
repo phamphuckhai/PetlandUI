@@ -7,6 +7,7 @@ import rootSaga from './ducks/rootSaga';
 
 export interface ApplicationState {
   repositories: RepositoriesState
+  
 }
 
 const sagaMiddleware = createSagaMiddleware();

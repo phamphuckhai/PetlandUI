@@ -56,3 +56,64 @@ query {
   });
 }
 
+
+export const getAllPet = async ()=>{
+  return await graphQLClient.request(
+gql`
+query{
+  getAllPet(q:{}){
+    data{
+      id
+      name
+      birthday
+      
+      race{
+        name
+      }
+      
+      avatar
+      
+      user{name}
+    }
+  }
+}
+`).then((data)=>{  
+    return data.getAllPet.data
+  });
+}
+
+export const getAllVaccine = async ()=>{
+  return await graphQLClient.request(
+gql`
+query{
+  getAllVaccineType(q:{}){
+    data{
+      id
+      name
+      raceType
+      createdAt
+      updatedAt
+    }
+  }
+}
+`).then((data)=>{  
+    return data.getAllVaccineType.data
+  });
+}
+
+export const deleteVaccine = async(id: string)=>{
+  return await graphQLClient.request(
+    gql`
+    mutation{
+      deleteOneVaccineType(
+        id: "${id}"
+        ){
+          id
+        }
+    }
+    `).then((data)=>{  
+      // console.log("that is data");
+      });
+}
+
+

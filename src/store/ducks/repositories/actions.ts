@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions';
-import { RepositoriesTypes, Repository } from './types';
+import { RepositoriesTypes, Repository, Vaccine } from './types';
 
 export const loadRequest = () => action(RepositoriesTypes.LOAD_REQUEST);
 
@@ -7,5 +7,12 @@ export const loadSuccess = (data: Repository[]) => action(RepositoriesTypes.LOAD
 
 export const loadFailure = () => action(RepositoriesTypes.LOAD_FAILURE);
 
-export const loadPost = ()=> action(RepositoriesTypes.LOAD_POST)
+export const loadPost = ()=> action(RepositoriesTypes.LOAD_POST);
 
+export const loadPet =()=> action(RepositoriesTypes.LOAD_PET);
+
+export const loadVaccine = ()=> action(RepositoriesTypes.LOAD_VACCINE);
+
+export const loadVaccineSuccess= (vaccine: Vaccine[])=> action(RepositoriesTypes.LOAD_VACCINE_SUCCCES, {vaccine});
+
+export const loadDelete = (id: String) => action(RepositoriesTypes.DELETE_VACCINE, {id});

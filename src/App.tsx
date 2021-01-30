@@ -5,6 +5,8 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import DashBoardPageLayout from './layouts/DashBoardPageLayout';
 import PostPage from './pages/PostPage';
 import UserPage from './pages/UserPage';
+import PetPage from './pages/PetPage';
+import VaccineList from './pages/VaccineList';
 
 import store from './store';
 
@@ -33,9 +35,9 @@ const App: React.FunctionComponent<Props> = () => {
         
           <Switch>
             <Route path="/post" component={PostPage} />
-            {/* <Route path="/dashboard" component={Dashboard} />
-            <Route path="/add-friend" component={AddFriend} />
-            <Route path="/add-new-item" component={AddNewItem} />
+            <Route path="/pet" component={PetPage} />
+            <Route path="/vaccine" component={VaccineList} />
+            {/* <Route path="/add-new-item" component={AddNewItem} />
             <Route path="/send-invitation" component={SendInvitation} />
             <Route path="/transaction/list" component={TransactionList} />
             <Route path="/transaction/:id/edit" component={TransactionEdit} />
