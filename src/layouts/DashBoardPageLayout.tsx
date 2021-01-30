@@ -43,7 +43,7 @@ const  DashboardPageLayout: React.FunctionComponent<CommonLayoutProps> = ({ chil
             defaultOpenKeys={['sub1']}
             style={{ height: '100%' }}
           >
-            <Menu.Item key="sub1" icon={<UserOutlined />} title="subnav 1"
+            <Menu.Item key="sub1" icon={<UserOutlined />} title="Người dùng"
             >
               <Link to="/user">Người dùng</Link>
             </Menu.Item>
@@ -53,8 +53,11 @@ const  DashboardPageLayout: React.FunctionComponent<CommonLayoutProps> = ({ chil
             <SubMenu key="PET" icon={<CrownFilled />} title="Thú cưng">
               <Menu.Item key="9"> <Link to="/pet">List thú cưng</Link></Menu.Item>
               <Menu.Item key="10"><Link to="/vaccine">Vắc-xin</Link></Menu.Item>
-             
             </SubMenu>
+            <Menu.Item key="wiki" icon={<UserOutlined />} title="Bài viết WIKI"
+            >
+              <Link to="/wiki">Bài viết WIKI</Link>
+            </Menu.Item>
           </Menu>
         </Sider>
         <div style={{ padding: '0 24px', minHeight: 280 }}>

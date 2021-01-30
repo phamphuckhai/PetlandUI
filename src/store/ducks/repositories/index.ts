@@ -2,6 +2,7 @@ import { Reducer } from 'redux';
 import { RepositoriesState, RepositoriesTypes } from './types';
 
 const INITIAL_STATE: RepositoriesState = {
+  wiki: [],
   vaccine: [],
   data: [],
   error: false,
@@ -35,6 +36,12 @@ const reducer: Reducer<RepositoriesState> = (state = INITIAL_STATE, action) => {
       return{
         ...state, idDelete: action.payload.id
       }
+      case RepositoriesTypes.LOAD_WIKI:
+      return { ...state, loading: true };
+      case RepositoriesTypes.LOAD_WIKI_SUCCCES:
+        return { 
+          ...state, loading: false, error: false, wiki: action.payload.wiki, 
+         };
     default:
       return state;
   }

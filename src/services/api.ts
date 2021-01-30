@@ -115,5 +115,26 @@ export const deleteVaccine = async(id: string)=>{
       // console.log("that is data");
       });
 }
+export const getAllWiki = async ()=>{
+  return await graphQLClient.request(
+gql`
+query{
+  getAllWikiCategory(q:{}){
+    data{
+      id
+      title
+      image
+      typeOfwiki{
+        name
+      }
+      createdAt
+      updatedAt
+    }
+  }
+}
+`).then((data)=>{  
+    return data.getAllWikiCategory.data
+  });
+}
 
 

@@ -7,6 +7,7 @@ import PostPage from './pages/PostPage';
 import UserPage from './pages/UserPage';
 import PetPage from './pages/PetPage';
 import VaccineList from './pages/VaccineList';
+import WikiList from './pages/WikiList';
 
 import store from './store';
 
@@ -37,6 +38,7 @@ const App: React.FunctionComponent<Props> = () => {
             <Route path="/post" component={PostPage} />
             <Route path="/pet" component={PetPage} />
             <Route path="/vaccine" component={VaccineList} />
+            <Route path="/wiki" component={WikiList} />
             {/* <Route path="/add-new-item" component={AddNewItem} />
             <Route path="/send-invitation" component={SendInvitation} />
             <Route path="/transaction/list" component={TransactionList} />

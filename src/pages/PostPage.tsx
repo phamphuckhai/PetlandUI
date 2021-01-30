@@ -62,7 +62,7 @@ const PostPage: React.FunctionComponent<Props> = props => {
       render: (videos: string[]): JSX.Element[] => {
         return videos&&videos.map((c: string) => {
           return (
-            <video key={c} autoPlay={true} style={{width: 140, height: 140}}>
+            <video key={c} autoPlay={false} style={{width: 140, height: 140}}>
                 <source src={c} />
         </video>
           )

@@ -1,7 +1,7 @@
 import { call, put, fork, select } from 'redux-saga/effects';
-import {api, getTestGQL, getUserGQL, getAllPet, getAllVaccine, deleteVaccine} from '../../../services/api';
+import {api, getTestGQL, getUserGQL, getAllPet, getAllVaccine,getAllWiki, deleteVaccine} from '../../../services/api';
 
-import { loadSuccess, loadFailure, loadVaccineSuccess } from './actions';
+import { loadSuccess, loadFailure, loadVaccineSuccess, loadwikiSuccess } from './actions';
 import store from "../../index"
 
 const data = (store:any) => store.repositories.idDelete;
@@ -60,5 +60,19 @@ export function* takeDelete(){
     // something wrong
   }
 }
+
+export function* loadwiki(){
+  try {      
+      
+    const response =  yield call(getAllWiki);
+    console.log("im in respond",response);
+    
+    yield put(loadwikiSuccess(response));
+  } catch (err) {
+    yield put(loadFailure());
+  }
+}
+
+
 
 

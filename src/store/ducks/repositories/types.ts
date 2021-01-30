@@ -11,6 +11,8 @@ export enum RepositoriesTypes {
   LOAD_VACCINE = '@repositories/LOAD_VACCINE',
   LOAD_VACCINE_SUCCCES= '@repositories/LOAD_VACCINE_SUCCCES',
   DELETE_VACCINE= '@repositories/DELETE_VACCINE',
+  LOAD_WIKI = '@repositories/LOAD_WIKI',
+  LOAD_WIKI_SUCCCES='repositories@LOAD_WIKI_SUCCCES',
 }
 
 /**
@@ -27,6 +29,14 @@ export interface Vaccine {
   createdAt: string
   updatedAt: string
 }
+export interface Wiki{
+  id: string
+  title: string
+  image: string
+  typeOfWikiId: string
+  createdAt: string
+  updatedAt: string
+}
 
 // export type VaccineRecord = Vaccine & { key: number | string }
 
@@ -36,6 +46,7 @@ export interface Vaccine {
  * State type
  */
 export interface RepositoriesState {
+  readonly wiki: Wiki[]
   readonly vaccine: Vaccine[]
   readonly data: Repository[]
   readonly loading: boolean
